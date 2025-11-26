@@ -14,6 +14,8 @@ public class RegularStudent extends Student {
         System.out.println("ID: " + getStudentId());
         System.out.println("Name: " + getName());
         System.out.println("Type: Regular Student");
+        System.out.println("Age: " + getAge());
+        System.out.println("Email: " + getEmail());
         System.out.println("Passing Grade: " + passingGrade + "%");
         System.out.println("Status: " + getStatus());
     }
