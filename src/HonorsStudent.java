@@ -6,7 +6,12 @@ public class HonorsStudent extends Student {
     public HonorsStudent(String name, int age, String email, String phone) {
         super(name, age, email, phone);
     }
-
+  // Honors eligibility checking method verifying if average is >=85
+    public boolean checkHonorsEligibility(GradeManager gradeManager) {
+        double avg = calculateAverageGrade(gradeManager);
+        honorsEligible = avg >= 85.0;
+        return honorsEligible;
+    }
 
     public boolean isHonorsEligible() {
         return honorsEligible;
