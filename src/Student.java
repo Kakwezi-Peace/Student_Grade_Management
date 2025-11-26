@@ -36,7 +36,18 @@ public abstract class Student {
     public void setPhone(String phone) { this.phone = phone; }
     public void setStatus(String status) { this.status = status; }
 
+    // Abstract methods
+    public abstract void displayStudentDetails();
+    public abstract String getStudentType();
+    public abstract double getPassingGrade();
 
+    // Average helpers (ask GradeManager when needed)
+    public double calculateAverageGrade(GradeManager gradeManager) {
+        return gradeManager.calculateOverallAverage(this.studentId);
+    }
 
-
+    public boolean isPassing(GradeManager gradeManager) {
+        double avg = calculateAverageGrade(gradeManager);
+        return avg >= getPassingGrade();
+    }
 }
