@@ -176,11 +176,11 @@ public class Main {
 
     // Helpers
     private static void seedInitialStudents(StudentManager m) {
-        m.addStudent(new RegularStudent("Alice Johnson", 16, "alice@school.edu", "+250-111-111"));
-        m.addStudent(new HonorsStudent("Bob Smith", 17, "bob@school.edu", "+250-222-222"));
-        m.addStudent(new RegularStudent("Carol Martinez", 16, "carol@school.edu", "+250-333-333"));
-        m.addStudent(new HonorsStudent("David Chen", 18, "david@school.edu", "+250-444-444"));
-        m.addStudent(new RegularStudent("Emma Wilson", 15, "emma@school.edu", "+250-555-555"));
+        m.addStudent(new RegularStudent("Mugabekazi Enid", 16, "enid@school.org", "+250-111-111"));
+        m.addStudent(new HonorsStudent("Bwiza Eric", 17, "bwiza@school.org", "+250-222-222"));
+        m.addStudent(new RegularStudent("Munny Vin", 16, "munny@school.org", "+250-333-333"));
+        m.addStudent(new HonorsStudent("peace kakwezi", 18, "peace@school.org", "+250-444-444"));
+        m.addStudent(new RegularStudent("Divine Bugingo", 54, "bugingo@school.org", "+250-555-555"));
     }
 
     private static void listSubjects(Subject[] subjects) {
