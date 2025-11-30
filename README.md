@@ -27,16 +27,26 @@ Polymorphism (different behavior for Regular vs Honors students)
 #  Project Structure
 Code
 src/
- #Main.java              # Entry point with menu and flows
- #Student.java           # Base class for all students
- #RegularStudent.java    # Subclass with passing grade = 50%
- #HonorsStudent.java     # Subclass with passing grade = 60% + honors check
- #Subject.java           # Base class for subjects
- #CoreSubject.java       # Core subject (Math, English, Science)
- #ElectiveSubject.java   # Elective subject (Music, Art, PE)
- #Grade.java             # Represents a grade for a student in a subject
- #StudentManager.java    # Handles adding, finding, and listing students
- #GradeManager.java      # Handles recording grades and calculating averages
+
+ Main.java              # Entry point with menu and flows
+ 
+ Student.java           # Base class for all students
+ 
+ RegularStudent.java    # Subclass with passing grade = 50%
+ 
+ HonorsStudent.java     # Subclass with passing grade = 60% + honors check
+ 
+ Subject.java           # Base class for subjects
+ 
+ CoreSubject.java       # Core subject (Math, English, Science)
+ 
+ ElectiveSubject.java   # Elective subject (Music, Art, PE)
+ 
+ Grade.java             # Represents a grade for a student in a subject
+ 
+ StudentManager.java    # Handles adding, finding, and listing students
+ 
+ GradeManager.java      # Handles recording grades and calculating averages
 
  # How to Run
 Clone the repository:
