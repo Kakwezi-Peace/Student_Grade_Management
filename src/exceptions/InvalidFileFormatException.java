@@ -1,4 +1,8 @@
 package exceptions;
 
-public class InvalidFileFormatException {
+public class InvalidFileFormatException extends Exception {
+    public InvalidFileFormatException(String msg) {
+        super(msg);
+    }
 }
+
