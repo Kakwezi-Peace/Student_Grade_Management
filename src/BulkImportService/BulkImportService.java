@@ -1,4 +1,4 @@
-package services;
+package BulkImportService;
 
 public class BulkImportService {
 }
