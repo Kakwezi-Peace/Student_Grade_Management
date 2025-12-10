@@ -6,7 +6,7 @@ public class RegularStudent extends Student {
     public RegularStudent(String name, int age, String email, String phone) {
         super(name, age, email, phone);
     }
-
+// method overriding
     @Override
     public void displayStudentDetails() {
         System.out.println("Type: Regular");
