@@ -6,7 +6,7 @@ public class CoreSubject extends Subject {
     public CoreSubject(String name, String code) {
         super(name, code);
     }
-
+// overriding methods
     @Override
     public void displaySubjectDetails() {
         System.out.printf("Core Subject: %s (%s), mandatory: %b%n", getSubjectName(), getSubjectCode(), mandatory);
