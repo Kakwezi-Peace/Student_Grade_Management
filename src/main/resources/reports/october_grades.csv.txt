@@ -1,0 +1,3 @@
+SEARCH RESULTS
+STU ID | NAME | TYPE | AVG
+STU006 | peace | Honors | 0.0%
