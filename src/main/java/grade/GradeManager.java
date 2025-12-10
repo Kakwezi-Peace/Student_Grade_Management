@@ -10,7 +10,7 @@ public class GradeManager {
         grades[gradeCount++] = grade;
         return true;
     }
-
+// method
     public void viewGradesByStudent(String studentId) {
         // Reverse chronological (newest first): scan backward
         System.out.println("GRD ID | DATE | SUBJECT | TYPE | GRADE");
