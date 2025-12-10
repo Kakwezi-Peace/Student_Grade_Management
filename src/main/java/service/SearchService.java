@@ -38,7 +38,7 @@ public class SearchService {
         }
         return result;
     }
-
+// searching by type
     public List<Student> searchByType(StudentManager sm, String type) {
         List<Student> result = new ArrayList<>();
         for (Student s : sm.getAllStudents()) {
