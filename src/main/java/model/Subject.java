@@ -11,7 +11,7 @@ public abstract class Subject {
 
     public abstract void displaySubjectDetails();
     public abstract String getSubjectType();
-
+// getters and setter methods
     public String getSubjectName() { return subjectName; }
     public String getSubjectCode() { return subjectCode; }
     public void setSubjectName(String subjectName) { this.subjectName = subjectName; }
