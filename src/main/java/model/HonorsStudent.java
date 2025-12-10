@@ -16,7 +16,7 @@ public class HonorsStudent extends Student {
         System.out.println("Passing Grade: " + passingGrade + "%");
         // Honors flag will be computed via average at display time
     }
-
+// methods to override
     @Override
     public String getStudentType() {
         return "Honors";

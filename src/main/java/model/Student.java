@@ -25,7 +25,7 @@ public abstract class Student {
         studentCounter++;
         return String.format("STU%03d", studentCounter);
     }
-
+// abstract methods
     public abstract void displayStudentDetails();
     public abstract String getStudentType();
     public abstract double getPassingGrade();

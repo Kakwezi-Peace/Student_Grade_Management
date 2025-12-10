@@ -6,7 +6,7 @@ public class ElectiveSubject extends Subject {
     public ElectiveSubject(String name, String code) {
         super(name, code);
     }
-
+// method to override
     @Override
     public void displaySubjectDetails() {
         System.out.printf("Elective Subject: %s (%s), mandatory: %b%n", getSubjectName(), getSubjectCode(), mandatory);

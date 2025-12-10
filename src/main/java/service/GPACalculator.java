@@ -20,7 +20,7 @@ public class GPACalculator {
         if (pct >= 60) return 1.0;
         return 0.0;
     }
-
+// to calculate the cumulative GPA
     public double cumulativeGpa(Student student, GradeManager gm) {
         double[] grades = gm.getGradesForStudent(student.getStudentId());
         if (grades.length == 0) return 0.0;

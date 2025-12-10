@@ -123,7 +123,7 @@ public class MainApp {
         }
         if (!ok) System.out.println("Could not add student (capacity reached).");
     }
-
+// method section
     private static void recordGradeFlow(Scanner sc, StudentManager sm, GradeManager gm) {
         System.out.println("RECORD GRADE");
         System.out.print("Enter Student ID: ");
@@ -344,80 +344,80 @@ public class MainApp {
             }
         }
     }
-/// ////////////
+    /// ////////////
 
 // US-5: View Class Statistics
-private static void viewClassStatistics(StudentManager sm, GradeManager gm) {
-    StatisticsCalculator stats = new StatisticsCalculator();
-    double[] allGrades = stats.getAllGrades(sm, gm);
+    private static void viewClassStatistics(StudentManager sm, GradeManager gm) {
+        StatisticsCalculator stats = new StatisticsCalculator();
+        double[] allGrades = stats.getAllGrades(sm, gm);
 
-    System.out.println("CLASS STATISTICS");
-    System.out.println("Total Students: " + sm.getStudentCount());
-    System.out.println("Total Grades Recorded: " + allGrades.length);
+        System.out.println("CLASS STATISTICS");
+        System.out.println("Total Students: " + sm.getStudentCount());
+        System.out.println("Total Grades Recorded: " + allGrades.length);
 
-    // Grade distribution
-    Map<String, Integer> dist = stats.gradeDistribution(allGrades);
-    System.out.println("GRADE DISTRIBUTION");
-    for (Map.Entry<String, Integer> e : dist.entrySet()) {
-        double pct = (e.getValue() * 100.0) / allGrades.length;
-        System.out.printf("%s: %d grades (%.1f%%)%n", e.getKey(), e.getValue(), pct);
+        // Grade distribution
+        Map<String, Integer> dist = stats.gradeDistribution(allGrades);
+        System.out.println("GRADE DISTRIBUTION");
+        for (Map.Entry<String, Integer> e : dist.entrySet()) {
+            double pct = (e.getValue() * 100.0) / allGrades.length;
+            System.out.printf("%s: %d grades (%.1f%%)%n", e.getKey(), e.getValue(), pct);
+        }
+
+        // Statistical measures
+        System.out.println("\nSTATISTICAL ANALYSIS");
+        System.out.printf("Mean (Average): %.1f%%%n", stats.mean(allGrades));
+        System.out.printf("Median: %.1f%%%n", stats.median(allGrades));
+        System.out.printf("Mode: %.1f%%%n", stats.mode(allGrades));
+        System.out.printf("Standard Deviation: %.1f%%%n", stats.stdDev(allGrades));
+
+        // Highest and lowest grades
+        double max = Arrays.stream(allGrades).max().orElse(0);
+        double min = Arrays.stream(allGrades).min().orElse(0);
+        System.out.printf("Highest Grade: %.1f%%%n", max);
+        System.out.printf("Lowest Grade: %.1f%%%n", min);
+
+        // Subject performance (simplified)
+        System.out.println("\nSUBJECT PERFORMANCE");
+        System.out.printf("Core Subjects Average: %.1f%%%n", gm.calculateCoreAverage("ALL"));
+        System.out.printf("Elective Subjects Average: %.1f%%%n", gm.calculateElectiveAverage("ALL"));
+
+        // Student type comparison
+        double[] regular = stats.getGradesByType(sm, gm, "Regular");
+        double[] honors = stats.getGradesByType(sm, gm, "Honors");
+        System.out.println("\nSTUDENT TYPE COMPARISON");
+        System.out.printf("Regular Students: %.1f%% average (%d grades)%n", stats.mean(regular), regular.length);
+        System.out.printf("Honors Students: %.1f%% average (%d grades)%n", stats.mean(honors), honors.length);
     }
+    /// ///////////////
+    private static void bulkImportFlow(Scanner sc, StudentManager sm, GradeManager gm) {
+        System.out.println("BULK IMPORT GRADES");
+        System.out.println("Place your CSV file in: src/main/resources/imports/");
+        System.out.println("CSV Format Required:");
+        System.out.println("StudentID,SubjectName,SubjectType,Grade");
+        System.out.println("Example: STU001,Mathematics,Core,85");
 
-    // Statistical measures
-    System.out.println("\nSTATISTICAL ANALYSIS");
-    System.out.printf("Mean (Average): %.1f%%%n", stats.mean(allGrades));
-    System.out.printf("Median: %.1f%%%n", stats.median(allGrades));
-    System.out.printf("Mode: %.1f%%%n", stats.mode(allGrades));
-    System.out.printf("Standard Deviation: %.1f%%%n", stats.stdDev(allGrades));
+        System.out.print("Enter filename (without extension): ");
+        String filename = sc.nextLine().trim();
 
-    // Highest and lowest grades
-    double max = Arrays.stream(allGrades).max().orElse(0);
-    double min = Arrays.stream(allGrades).min().orElse(0);
-    System.out.printf("Highest Grade: %.1f%%%n", max);
-    System.out.printf("Lowest Grade: %.1f%%%n", min);
+        BulkImportService importer = new BulkImportService(
+                sm, gm,
+                new SimpleCSVParser(),
+                new File("src/main/resources/imports"),
+                new File("src/main/resources/logs")
+        );
 
-    // Subject performance (simplified)
-    System.out.println("\nSUBJECT PERFORMANCE");
-    System.out.printf("Core Subjects Average: %.1f%%%n", gm.calculateCoreAverage("ALL"));
-    System.out.printf("Elective Subjects Average: %.1f%%%n", gm.calculateElectiveAverage("ALL"));
-
-    // Student type comparison
-    double[] regular = stats.getGradesByType(sm, gm, "Regular");
-    double[] honors = stats.getGradesByType(sm, gm, "Honors");
-    System.out.println("\nSTUDENT TYPE COMPARISON");
-    System.out.printf("Regular Students: %.1f%% average (%d grades)%n", stats.mean(regular), regular.length);
-    System.out.printf("Honors Students: %.1f%% average (%d grades)%n", stats.mean(honors), honors.length);
-}
-/// ///////////////
-private static void bulkImportFlow(Scanner sc, StudentManager sm, GradeManager gm) {
-    System.out.println("BULK IMPORT GRADES");
-    System.out.println("Place your CSV file in: src/main/resources/imports/");
-    System.out.println("CSV Format Required:");
-    System.out.println("StudentID,SubjectName,SubjectType,Grade");
-    System.out.println("Example: STU001,Mathematics,Core,85");
-
-    System.out.print("Enter filename (without extension): ");
-    String filename = sc.nextLine().trim();
-
-    BulkImportService importer = new BulkImportService(
-            sm, gm,
-            new SimpleCSVParser(),
-            new File("src/main/resources/imports"),
-            new File("src/main/resources/logs")
-    );
-
-    try {
-        BulkImportService.ImportResult result = importer.importFile(filename);
-        System.out.println("IMPORT SUMMARY");
-        System.out.println("Total Rows: " + (result.successCount + result.failureCount));
-        System.out.println("Successfully Imported: " + result.successCount);
-        System.out.println("Failed: " + result.failureCount);
-        System.out.println("Log File: " + result.logFilename);
-        System.out.println("Location: src/main/resources/logs/");
-    } catch (exception.InvalidFileFormatException e) {
-        System.out.println("ERROR: " + e.getMessage());
+        try {
+            BulkImportService.ImportResult result = importer.importFile(filename);
+            System.out.println("IMPORT SUMMARY");
+            System.out.println("Total Rows: " + (result.successCount + result.failureCount));
+            System.out.println("Successfully Imported: " + result.successCount);
+            System.out.println("Failed: " + result.failureCount);
+            System.out.println("Log File: " + result.logFilename);
+            System.out.println("Location: src/main/resources/logs/");
+        } catch (exception.InvalidFileFormatException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
     }
-}
 
 
 

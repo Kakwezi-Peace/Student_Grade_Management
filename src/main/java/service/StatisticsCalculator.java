@@ -27,14 +27,14 @@ public class StatisticsCalculator {
         }
         return dist;
     }
-
+// how to find mean
     public double mean(double[] values) {
         if (values.length == 0) return 0.0;
         double sum = 0;
         for (double v : values) sum += v;
         return sum / values.length;
     }
-
+// how to find the median
     public double median(double[] values) {
         if (values.length == 0) return 0.0;
         double[] copy = Arrays.copyOf(values, values.length);
@@ -43,7 +43,7 @@ public class StatisticsCalculator {
         if (n % 2 == 1) return copy[n / 2];
         return (copy[n / 2 - 1] + copy[n / 2]) / 2.0;
     }
-
+// how to find mode
     public double mode(double[] values) {
         if (values.length == 0) return 0.0;
         Map<Double, Integer> freq = new HashMap<>();
@@ -57,6 +57,7 @@ public class StatisticsCalculator {
         return mode;
     }
 
+     // methods
     public double stdDev(double[] values) {
         if (values.length == 0) return 0.0;
         double mu = mean(values);
@@ -92,5 +93,13 @@ public class StatisticsCalculator {
             for (double g : grades) filtered.add(g); // Simplified: assumes all grades are valid
         }
         return filtered.stream().mapToDouble(Double::doubleValue).toArray();
+    }
+
+    public double calculateAverage(double[] grades1) {
+        return 0;
+    }
+    // to calculate the median
+    public double calculateMedian(double[] grades2) {
+        return 0;
     }
 }
