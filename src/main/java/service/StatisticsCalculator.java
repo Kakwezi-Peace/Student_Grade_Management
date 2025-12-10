@@ -94,4 +94,12 @@ public class StatisticsCalculator {
         }
         return filtered.stream().mapToDouble(Double::doubleValue).toArray();
     }
+
+    public double calculateAverage(double[] grades1) {
+        return 0;
+    }
+    // to calculate the median
+    public double calculateMedian(double[] grades2) {
+        return 0;
+    }
 }
