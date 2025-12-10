@@ -2,7 +2,7 @@ package service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// class simple csvparser class
 public class SimpleCSVParser implements CSVParser {
     @Override
     public List<String[]> parseLines(String csvContent) {

@@ -17,7 +17,7 @@ public class FileExporter {
             if (created) LoggerUtil.info("Created reports directory: " + reportsDir.getAbsolutePath());
         }
     }
-
+// to export txts
     public File exportText(String filenameWithoutExt, String content) throws ReportExportException {
         if (filenameWithoutExt == null || filenameWithoutExt.trim().isEmpty()) {
             throw new ReportExportException("Filename cannot be empty.");
